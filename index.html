@@ -1,96 +1,93 @@
-# malla-materias
-materias fmed udelar-uruguay 
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Materias Medicina</title>
+  <title>Malla Interactiva Medicina</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Materias de Medicina</h1>
+  <h1>Malla Interactiva - Medicina</h1>
 
-  <div class="anio">
-    <h2>Primer año</h2>
+  <div class="anio" id="anio1">
+    <h2>Primer Año</h2>
     <h3>Primer semestre</h3>
     <ul>
-      <li onclick="toggleTachado(this)"><b>Introducción a la Biología Molecular y Celular</b></li>
-      <li onclick="toggleTachado(this)"><b>Introducción a la Bioestadística</b></li>
-      <li onclick="toggleTachado(this)"><b>Salud Pública y Humanidades</b></li>
-      <li onclick="toggleTachado(this)"><b>Aprendizaje en el Territorio 1</b></li>
-    </ul>
-
-    <h3>Segundo semestre</h3>
-    <ul>
-      <li onclick="toggleTachado(this)"><b>Biología Molecular y Celular</b> (si no se tacha <b>Introducción a la Biología Molecular y Celular</b>, no se puede activar)</li>
-      <li onclick="toggleTachado(this)"><b>Aprendizaje en el Territorio 2</b> (si no se tacha <b>Aprendizaje en el Territorio 1</b>, no se puede activar)</li>
-    </ul>
-  </div>
-
-  <div class="anio">
-    <h2>Segundo año</h2>
-    <h3>Primer semestre</h3>
-    <ul>
-      <li onclick="toggleTachado(this)"><b>Anatomía</b> (si no se tacha <b>Salud Pública y Humanidades</b>, no se puede activar)</li>
-      <li onclick="toggleTachado(this)"><b>Histología y Biofísica</b> (si no se tacha <b>Biología Molecular y Celular</b>, no se puede activar)</li>
+      <li id="intro-bio" onclick="toggleMateria(this)">Introducción a la Biología Molecular y Celular</li>
+      <li id="intro-bioest" onclick="toggleMateria(this)">Introducción a la Bioestadística</li>
+      <li id="salud-humanidades" onclick="toggleMateria(this)">Salud Pública y Humanidades</li>
+      <li id="territorio1" onclick="toggleMateria(this)">Aprendizaje en el Territorio 1</li>
     </ul>
     <h3>Segundo semestre</h3>
     <ul>
-      <li onclick="toggleTachado(this)"><b>Histología (Neuro y Cardio)</b> (si no se tacha <b>Biología Molecular y Celular</b>, no se puede activar)</li>
-      <li onclick="toggleTachado(this)"><b>Neurociencias</b> (si no se tacha <b>Biología Molecular y Celular</b>, no se puede activar)</li>
-      <li onclick="toggleTachado(this)"><b>Cardiovascular y Respiratorio</b> (si no se tacha <b>Biología Molecular y Celular</b>, no se puede activar)</li>
+      <li id="bio" class="bloqueada" data-prerrequisitos="intro-bio" onclick="toggleMateria(this)">Biología Molecular y Celular</li>
+      <li id="territorio2" class="bloqueada" data-prerrequisitos="territorio1" onclick="toggleMateria(this)">Aprendizaje en el Territorio 2</li>
     </ul>
   </div>
 
-  <div class="anio">
-    <h2>Tercer año</h2>
+  <div class="anio" id="anio2">
+    <h2>Segundo Año</h2>
     <h3>Primer semestre</h3>
     <ul>
-      <li onclick="toggleTachado(this)"><b>Digestivo, Renal, Endocrino, Metabólico y Reproductivo</b> (si no se tacha <b>Biología Molecular y Celular</b> y <b>Anatomía</b>, no se puede activar)</li>
+      <li id="anatomia" class="bloqueada" data-prerrequisitos="salud-humanidades" onclick="toggleMateria(this)">Anatomía</li>
+      <li id="histo-biofisica" class="bloqueada" data-prerrequisitos="bio" onclick="toggleMateria(this)">Histología y Biofísica</li>
     </ul>
     <h3>Segundo semestre</h3>
     <ul>
-      <li onclick="toggleTachado(this)"><b>Hematología e Inmunobiología</b> (si no se tacha <b>Biología Molecular y Celular</b>, no se puede activar)</li>
-      <li onclick="toggleTachado(this)"><b>Metodología Científica 1</b> (si no se tacha <b>Introducción a la Bioestadística</b>, no se puede activar)</li>
+      <li id="histo-neuro-cardio" class="bloqueada" data-prerrequisitos="bio" onclick="toggleMateria(this)">Histología (Neuro y Cardio)</li>
+      <li id="neuro" class="bloqueada" data-prerrequisitos="bio" onclick="toggleMateria(this)">Neurociencias</li>
+      <li id="cardio-respi" class="bloqueada" data-prerrequisitos="bio" onclick="toggleMateria(this)">Cardiovascular y Respiratorio</li>
     </ul>
   </div>
 
-  <div class="anio">
-    <h2>Cuarto año</h2>
+  <div class="anio" id="anio3">
+    <h2>Tercer Año</h2>
     <h3>Primer semestre</h3>
     <ul>
-      <li onclick="toggleTachado(this)"><b>Medicina en el Primer Nivel de Atención</b> (si no se tacha todo lo anterior, no se puede activar)</li>
-      <li onclick="toggleTachado(this)"><b>Bases Científicas de la Patología</b> (si no se tacha todo lo anterior, no se puede activar)</li>
+      <li id="digestivo" class="bloqueada" data-prerrequisitos="bio,anatomia" onclick="toggleMateria(this)">Digestivo, Renal, Endocrino, Metabólico y Reproductivo</li>
     </ul>
     <h3>Segundo semestre</h3>
     <ul>
-      <li onclick="toggleTachado(this)"><b>Pediatría</b> (si no se tacha todo lo anterior, no se puede activar)</li>
-      <li onclick="toggleTachado(this)"><b>Ginecología y Neonatología</b> (si no se tacha todo lo anterior, no se puede activar)</li>
+      <li id="hematologia" class="bloqueada" data-prerrequisitos="bio" onclick="toggleMateria(this)">Hematología e Inmunobiología</li>
+      <li id="metodo1" class="bloqueada" data-prerrequisitos="intro-bioest" onclick="toggleMateria(this)">Metodología Científica 1</li>
+    </ul>
+  </div>
+
+  <div class="anio" id="anio4">
+    <h2>Cuarto Año</h2>
+    <h3>Primer semestre</h3>
+    <ul>
+      <li id="primer-nivel" class="bloqueada" data-prerrequisitos="digestivo,hematologia,metodo1,territorio2,neuro,histo-biofisica,histo-neuro-cardio,cardio-respi" onclick="toggleMateria(this)">Medicina en el Primer Nivel de Atención</li>
+      <li id="bases-patologia" class="bloqueada" data-prerrequisitos="digestivo,hematologia" onclick="toggleMateria(this)">Bases Científicas de la Patología</li>
+    </ul>
+    <h3>Segundo semestre</h3>
+    <ul>
+      <li id="pediatria" class="bloqueada" data-prerrequisitos="bases-patologia" onclick="toggleMateria(this)">Pediatría</li>
+      <li id="gineco" class="bloqueada" data-prerrequisitos="bases-patologia" onclick="toggleMateria(this)">Ginecología y Neonatología</li>
     </ul>
   </div>
 
   <div class="anio">
-    <h2>Quinto año</h2>
+    <h2>Quinto Año</h2>
     <ul>
-      <li onclick="toggleTachado(this)"><b>Clínica Médica</b> (si no se tacha todo lo anterior, no se puede activar)</li>
-      <li onclick="toggleTachado(this)"><b>Patología Médica y Terapéutica</b> (si no se tacha todo lo anterior, no se puede activar)</li>
+      <li id="clinica-medica" class="bloqueada" data-prerrequisitos="pediatria,gineco" onclick="toggleMateria(this)">Clínica Médica</li>
+      <li id="patologia-medica" class="bloqueada" data-prerrequisitos="pediatria,gineco" onclick="toggleMateria(this)">Patología Médica y Terapéutica</li>
     </ul>
   </div>
 
   <div class="anio">
-    <h2>Sexto año</h2>
+    <h2>Sexto Año</h2>
     <ul>
-      <li onclick="toggleTachado(this)"><b>Clínica Quirúrgica</b> (si no se tacha todo lo anterior, no se puede activar)</li>
-      <li onclick="toggleTachado(this)"><b>Patología Quirúrgica</b> (si no se tacha todo lo anterior, no se puede activar)</li>
-      <li onclick="toggleTachado(this)"><b>Psicológica Médica</b> (si no se tacha todo lo anterior, no se puede activar)</li>
-      <li onclick="toggleTachado(this)"><b>Metodología Científica</b> (si no se tacha hasta 4to año, no se puede activar)</li>
+      <li id="clinica-quir" class="bloqueada" data-prerrequisitos="patologia-medica" onclick="toggleMateria(this)">Clínica Quirúrgica</li>
+      <li id="patologia-quir" class="bloqueada" data-prerrequisitos="patologia-medica" onclick="toggleMateria(this)">Patología Quirúrgica</li>
+      <li id="psicologica" class="bloqueada" data-prerrequisitos="patologia-medica" onclick="toggleMateria(this)">Psicológica Médica</li>
+      <li id="metodo2" class="bloqueada" data-prerrequisitos="metodo1" onclick="toggleMateria(this)">Metodología Científica</li>
     </ul>
   </div>
 
   <div class="anio">
-    <h2>Séptimo año</h2>
+    <h2>Séptimo Año</h2>
     <ul>
-      <li onclick="toggleTachado(this)"><b>Internado</b> (todo lo anterior debe estar tachado para poder activarlo)</li>
+      <li id="internado" class="bloqueada" data-prerrequisitos="clinica-medica,clinica-quir,patologia-quir,psicologica,metodo2" onclick="toggleMateria(this)">Internado</li>
     </ul>
   </div>
 
