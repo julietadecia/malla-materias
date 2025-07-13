@@ -1,34 +1,29 @@
 body {
-  font-family: sans-serif;
-  text-align: center;
-  background-color: #fdfdfd;
-  margin: 20px;
+  font-family: Arial, sans-serif;
+  margin: 30px;
+  background-color: #f9f9f9;
 }
 
-h1 {
-  margin-bottom: 30px;
+.anio {
+  margin-bottom: 25px;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 15px;
-  max-width: 600px;
-  margin: 0 auto;
+ul {
+  list-style-type: disc;
+  margin-left: 20px;
 }
 
-.materia {
-  background-color: #e0f7fa;
-  padding: 20px;
-  border-radius: 8px;
+li {
   cursor: pointer;
-  transition: 0.3s;
-  font-weight: bold;
-  user-select: none;
+  padding: 5px;
+  transition: background-color 0.2s;
 }
 
-.materia.tachada {
-  background-color: #c8e6c9;
+li:hover {
+  background-color: #e0e0e0;
+}
+
+.tachado {
   text-decoration: line-through;
-  color: #666;
+  color: gray;
 }
