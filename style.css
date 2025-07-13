@@ -1,40 +1,12 @@
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #f5f5f5;
-  padding: 20px;
-  color: #333;
-}
+function toggle(elem) {
+  if (elem.classList.contains("bloqueada")) return;
 
-h1 {
-  text-align: center;
-  margin-bottom: 40px;
-}
+  elem.classList.toggle("tachado");
 
-.anio {
-  margin-bottom: 30px;
-  background: #fff;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px #ccc;
-}
-
-ul {
-  list-style: none;
-  padding-left: 20px;
-}
-
-li {
-  padding: 5px 0;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-li.tachado {
-  text-decoration: line-through;
-  color: #999;
-}
-
-li.bloqueada {
-  color: #ccc;
-  cursor: not-allowed;
+  const todas = document.querySelectorAll(".materia.bloqueada");
+  todas.forEach(materia => {
+    const reqs = materia.dataset.prerrequisitos.split(",");
+    const ok = reqs.every(id => document.getElementById(id)?.classList.contains("tachado"));
+    if (ok) materia.classList.remove("bloqueada");
+  });
 }
