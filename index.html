@@ -1,53 +1,88 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Malla Interactiva Medicina</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <h1>Malla Interactiva Medicina</h1>
-  <div class="grid">
-    <!-- PRIMER AÑO -->
-    <div class="materia" id="intro-bio" onclick="toggle(this)">Introducción a la Biología</div>
-    <div class="materia" id="intro-bioest" onclick="toggle(this)">Bioestadística</div>
-    <div class="materia" id="salud-publica" onclick="toggle(this)">Salud Pública</div>
-    <div class="materia" id="territorio1" onclick="toggle(this)">Territorio 1</div>
-
-    <div class="materia bloqueada" id="bio" data-prerrequisitos="intro-bio" onclick="toggle(this)">Biología Molecular</div>
-    <div class="materia bloqueada" id="territorio2" data-prerrequisitos="territorio1" onclick="toggle(this)">Territorio 2</div>
-
-    <!-- SEGUNDO AÑO -->
-    <div class="materia bloqueada" id="anatomia" data-prerrequisitos="salud-publica" onclick="toggle(this)">Anatomía</div>
-    <div class="materia bloqueada" id="histo-biofisica" data-prerrequisitos="bio" onclick="toggle(this)">Histología y Biofísica</div>
-    <div class="materia bloqueada" id="neuro" data-prerrequisitos="bio" onclick="toggle(this)">Neurociencias</div>
-    <div class="materia bloqueada" id="cardio" data-prerrequisitos="bio" onclick="toggle(this)">Cardio y Respiratorio</div>
-
-    <!-- TERCER AÑO -->
-    <div class="materia bloqueada" id="digestivo" data-prerrequisitos="bio,anatomia" onclick="toggle(this)">Digestivo y Reproductivo</div>
-    <div class="materia bloqueada" id="hematologia" data-prerrequisitos="bio" onclick="toggle(this)">Hematología</div>
-    <div class="materia bloqueada" id="metodo1" data-prerrequisitos="intro-bioest" onclick="toggle(this)">Metodología 1</div>
-
-    <!-- CUARTO AÑO -->
-    <div class="materia bloqueada" id="nivel1" data-prerrequisitos="digestivo,hematologia,metodo1,territorio2,neuro,histo-biofisica,cardio" onclick="toggle(this)">1° Nivel Atención</div>
-    <div class="materia bloqueada" id="bases" data-prerrequisitos="digestivo,hematologia" onclick="toggle(this)">Bases Patología</div>
-    <div class="materia bloqueada" id="pediatria" data-prerrequisitos="bases" onclick="toggle(this)">Pediatría</div>
-    <div class="materia bloqueada" id="gineco" data-prerrequisitos="bases" onclick="toggle(this)">Gineco</div>
-
-    <!-- QUINTO AÑO -->
-    <div class="materia bloqueada" id="clinica" data-prerrequisitos="pediatria,gineco" onclick="toggle(this)">Clínica Médica</div>
-    <div class="materia bloqueada" id="patologia-medica" data-prerrequisitos="pediatria,gineco" onclick="toggle(this)">Patología Médica</div>
-
-    <!-- SEXTO AÑO -->
-    <div class="materia bloqueada" id="quirurgica" data-prerrequisitos="patologia-medica" onclick="toggle(this)">Clínica Quirúrgica</div>
-    <div class="materia bloqueada" id="patologia-quir" data-prerrequisitos="patologia-medica" onclick="toggle(this)">Patología Quirúrgica</div>
-    <div class="materia bloqueada" id="psico" data-prerrequisitos="patologia-medica" onclick="toggle(this)">Psicológica Médica</div>
-    <div class="materia bloqueada" id="metodo2" data-prerrequisitos="metodo1" onclick="toggle(this)">Metodología 2</div>
-
-    <!-- SÉPTIMO AÑO -->
-    <div class="materia bloqueada" id="internado" data-prerrequisitos="clinica,quirurgica,patologia-quir,psico,metodo2" onclick="toggle(this)">Internado</div>
+  <div class="malla">
+    <!-- Año 1 -->
+    <div class="columna">
+      <h2>1° Año</h2>
+      <div class="semestre">
+        <div class="materia" id="intro-bio" onclick="toggle(this)">Intro Biología</div>
+        <div class="materia" id="intro-bioest" onclick="toggle(this)">Bioestadística</div>
+        <div class="materia" id="salud-publica" onclick="toggle(this)">Salud Pública</div>
+        <div class="materia" id="territorio1" onclick="toggle(this)">Territorio 1</div>
+      </div>
+      <div class="semestre">
+        <div class="materia bloqueada" id="bio" data-prerrequisitos="intro-bio" onclick="toggle(this)">Biología Molecular</div>
+        <div class="materia bloqueada" id="territorio2" data-prerrequisitos="territorio1" onclick="toggle(this)">Territorio 2</div>
+      </div>
+    </div>
+    <!-- Año 2 -->
+    <div class="columna">
+      <h2>2° Año</h2>
+      <div class="semestre">
+        <div class="materia bloqueada" id="anatomia" data-prerrequisitos="salud-publica" onclick="toggle(this)">Anatomía</div>
+        <div class="materia bloqueada" id="histo-biofisica" data-prerrequisitos="bio" onclick="toggle(this)">Histo‑Biofísica</div>
+      </div>
+      <div class="semestre">
+        <div class="materia bloqueada" id="neuro" data-prerrequisitos="bio" onclick="toggle(this)">Neurociencias</div>
+        <div class="materia bloqueada" id="cardio" data-prerrequisitos="bio" onclick="toggle(this)">Cardio‑Resp.</div>
+      </div>
+    </div>
+    <!-- Año 3 -->
+    <div class="columna">
+      <h2>3° Año</h2>
+      <div class="semestre">
+        <div class="materia bloqueada" id="digestivo" data-prerrequisitos="bio,anatomia" onclick="toggle(this)">Digestivo</div>
+      </div>
+      <div class="semestre">
+        <div class="materia bloqueada" id="hematologia" data-prerrequisitos="bio" onclick="toggle(this)">Hematología</div>
+        <div class="materia bloqueada" id="metodo1" data-prerrequisitos="intro-bioest" onclick="toggle(this)">Metodología 1</div>
+      </div>
+    </div>
+    <!-- Año 4 -->
+    <div class="columna">
+      <h2>4° Año</h2>
+      <div class="semestre">
+        <div class="materia bloqueada" id="nivel1" data-prerrequisitos="digestivo,hematologia,metodo1,territorio2,neuro,histo-biofisica,cardio" onclick="toggle(this)">1° Nivel Atención</div>
+        <div class="materia bloqueada" id="bases" data-prerrequisitos="digestivo,hematologia" onclick="toggle(this)">Bases Patología</div>
+      </div>
+      <div class="semestre">
+        <div class="materia bloqueada" id="pediatria" data-prerrequisitos="bases" onclick="toggle(this)">Pediatría</div>
+        <div class="materia bloqueada" id="gineco" data-prerrequisitos="bases" onclick="toggle(this)">Ginecología</div>
+      </div>
+    </div>
+    <!-- Año 5 -->
+    <div class="columna">
+      <h2>5° Año</h2>
+      <div class="semestre">
+        <div class="materia bloqueada" id="clinica" data-prerrequisitos="pediatria,gineco" onclick="toggle(this)">Clínica Médica</div>
+        <div class="materia bloqueada" id="patologia-medica" data-prerrequisitos="pediatria,gineco" onclick="toggle(this)">Pat. Médica</div>
+      </div>
+    </div>
+    <!-- Año 6 -->
+    <div class="columna">
+      <h2>6° Año</h2>
+      <div class="semestre">
+        <div class="materia bloqueada" id="quirurgica" data-prerrequisitos="patologia-medica" onclick="toggle(this)">Clínica Quir.</div>
+        <div class="materia bloqueada" id="patologia-quir" data-prerrequisitos="patologia-medica" onclick="toggle(this)">Pat. Quir.</div>
+        <div class="materia bloqueada" id="psico" data-prerrequisitos="patologia-medica" onclick="toggle(this)">Psicológica</div>
+        <div class="materia bloqueada" id="metodo2" data-prerrequisitos="metodo1" onclick="toggle(this)">Metodología 2</div>
+      </div>
+    </div>
+    <!-- Año 7 -->
+    <div class="columna">
+      <h2>7° Año</h2>
+      <div class="semestre">
+        <div class="materia bloqueada" id="internado" data-prerrequisitos="clinica,quirurgica,patologia-quir,psico,metodo2" onclick="toggle(this)">Internado</div>
+      </div>
+    </div>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
