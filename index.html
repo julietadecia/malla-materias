@@ -4,23 +4,94 @@ materias fmed udelar-uruguay
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Malla de Materias</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Materias Medicina</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Malla de Materias</h1>
-  <div class="grid">
-    <!-- Podés agregar o cambiar materias acá -->
-    <div class="materia">Anatomía</div>
-    <div class="materia">Histología</div>
-    <div class="materia">Bioquímica</div>
-    <div class="materia">Fisiología</div>
-    <div class="materia">Microbiología</div>
-    <div class="materia">Farmacología</div>
-    <div class="materia">Patología</div>
-    <div class="materia">Clínica</div>
-    <div class="materia">Internado</div>
+  <h1>Materias de Medicina</h1>
+
+  <div class="anio">
+    <h2>Primer año</h2>
+    <h3>Primer semestre</h3>
+    <ul>
+      <li onclick="toggleTachado(this)"><b>Introducción a la Biología Molecular y Celular</b></li>
+      <li onclick="toggleTachado(this)"><b>Introducción a la Bioestadística</b></li>
+      <li onclick="toggleTachado(this)"><b>Salud Pública y Humanidades</b></li>
+      <li onclick="toggleTachado(this)"><b>Aprendizaje en el Territorio 1</b></li>
+    </ul>
+
+    <h3>Segundo semestre</h3>
+    <ul>
+      <li onclick="toggleTachado(this)"><b>Biología Molecular y Celular</b> (si no se tacha <b>Introducción a la Biología Molecular y Celular</b>, no se puede activar)</li>
+      <li onclick="toggleTachado(this)"><b>Aprendizaje en el Territorio 2</b> (si no se tacha <b>Aprendizaje en el Territorio 1</b>, no se puede activar)</li>
+    </ul>
+  </div>
+
+  <div class="anio">
+    <h2>Segundo año</h2>
+    <h3>Primer semestre</h3>
+    <ul>
+      <li onclick="toggleTachado(this)"><b>Anatomía</b> (si no se tacha <b>Salud Pública y Humanidades</b>, no se puede activar)</li>
+      <li onclick="toggleTachado(this)"><b>Histología y Biofísica</b> (si no se tacha <b>Biología Molecular y Celular</b>, no se puede activar)</li>
+    </ul>
+    <h3>Segundo semestre</h3>
+    <ul>
+      <li onclick="toggleTachado(this)"><b>Histología (Neuro y Cardio)</b> (si no se tacha <b>Biología Molecular y Celular</b>, no se puede activar)</li>
+      <li onclick="toggleTachado(this)"><b>Neurociencias</b> (si no se tacha <b>Biología Molecular y Celular</b>, no se puede activar)</li>
+      <li onclick="toggleTachado(this)"><b>Cardiovascular y Respiratorio</b> (si no se tacha <b>Biología Molecular y Celular</b>, no se puede activar)</li>
+    </ul>
+  </div>
+
+  <div class="anio">
+    <h2>Tercer año</h2>
+    <h3>Primer semestre</h3>
+    <ul>
+      <li onclick="toggleTachado(this)"><b>Digestivo, Renal, Endocrino, Metabólico y Reproductivo</b> (si no se tacha <b>Biología Molecular y Celular</b> y <b>Anatomía</b>, no se puede activar)</li>
+    </ul>
+    <h3>Segundo semestre</h3>
+    <ul>
+      <li onclick="toggleTachado(this)"><b>Hematología e Inmunobiología</b> (si no se tacha <b>Biología Molecular y Celular</b>, no se puede activar)</li>
+      <li onclick="toggleTachado(this)"><b>Metodología Científica 1</b> (si no se tacha <b>Introducción a la Bioestadística</b>, no se puede activar)</li>
+    </ul>
+  </div>
+
+  <div class="anio">
+    <h2>Cuarto año</h2>
+    <h3>Primer semestre</h3>
+    <ul>
+      <li onclick="toggleTachado(this)"><b>Medicina en el Primer Nivel de Atención</b> (si no se tacha todo lo anterior, no se puede activar)</li>
+      <li onclick="toggleTachado(this)"><b>Bases Científicas de la Patología</b> (si no se tacha todo lo anterior, no se puede activar)</li>
+    </ul>
+    <h3>Segundo semestre</h3>
+    <ul>
+      <li onclick="toggleTachado(this)"><b>Pediatría</b> (si no se tacha todo lo anterior, no se puede activar)</li>
+      <li onclick="toggleTachado(this)"><b>Ginecología y Neonatología</b> (si no se tacha todo lo anterior, no se puede activar)</li>
+    </ul>
+  </div>
+
+  <div class="anio">
+    <h2>Quinto año</h2>
+    <ul>
+      <li onclick="toggleTachado(this)"><b>Clínica Médica</b> (si no se tacha todo lo anterior, no se puede activar)</li>
+      <li onclick="toggleTachado(this)"><b>Patología Médica y Terapéutica</b> (si no se tacha todo lo anterior, no se puede activar)</li>
+    </ul>
+  </div>
+
+  <div class="anio">
+    <h2>Sexto año</h2>
+    <ul>
+      <li onclick="toggleTachado(this)"><b>Clínica Quirúrgica</b> (si no se tacha todo lo anterior, no se puede activar)</li>
+      <li onclick="toggleTachado(this)"><b>Patología Quirúrgica</b> (si no se tacha todo lo anterior, no se puede activar)</li>
+      <li onclick="toggleTachado(this)"><b>Psicológica Médica</b> (si no se tacha todo lo anterior, no se puede activar)</li>
+      <li onclick="toggleTachado(this)"><b>Metodología Científica</b> (si no se tacha hasta 4to año, no se puede activar)</li>
+    </ul>
+  </div>
+
+  <div class="anio">
+    <h2>Séptimo año</h2>
+    <ul>
+      <li onclick="toggleTachado(this)"><b>Internado</b> (todo lo anterior debe estar tachado para poder activarlo)</li>
+    </ul>
   </div>
 
   <script src="script.js"></script>
