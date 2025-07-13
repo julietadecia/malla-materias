@@ -1,5 +1,3 @@
-document.querySelectorAll('.materia').forEach(item => {
-  item.addEventListener('click', () => {
-    item.classList.toggle('tachada');
-  });
-});
+function toggleTachado(elemento) {
+  elemento.classList.toggle("tachado");
+}
