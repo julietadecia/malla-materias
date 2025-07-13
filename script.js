@@ -1,44 +1,52 @@
 body {
-  background: #f0f0f0;
-  font-family: 'Segoe UI', sans-serif;
-  padding: 20px;
+  font-family: 'Helvetica Neue', sans-serif;
+  background: #fafafa;
+  margin: 0; padding: 20px;
   text-align: center;
 }
 
-h1 {
-  margin-bottom: 30px;
+h1 { margin-bottom: 20px; }
+
+.malla {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 10px;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 10px;
-  max-width: 1000px;
-  margin: auto;
+.columna {
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+  padding: 10px;
+  min-width: 180px;
+  flex-shrink: 0;
 }
+
+h2 { margin: 8px 0; font-size: 16px; }
+
+.semestre { margin-bottom: 8px; }
 
 .materia {
-  background: #ffffff;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px #aaa;
+  background: #e3f2fd;
+  margin: 4px 0;
+  padding: 8px;
+  border-radius: 4px;
   cursor: pointer;
-  transition: 0.3s;
-  font-size: 14px;
+  font-size: 13px;
+  transition: background 0.2s;
 }
 
-.materia:hover {
-  background-color: #e9f5ff;
-}
+.materia:hover:enabled { background: #bbdefb; }
 
 .materia.tachado {
+  background: #c8e6c9;
   text-decoration: line-through;
-  background-color: #d4edda;
   color: #555;
 }
 
 .materia.bloqueada {
-  background-color: #eeeeee;
-  color: #999;
+  background: #eeeeee;
+  color: #aaa;
   cursor: not-allowed;
 }
